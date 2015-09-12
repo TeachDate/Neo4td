@@ -16,10 +16,10 @@
   },
   "autoload" : {
     "psr-0" : {
-      "TeachDate\\Neo4jBundle" : ""
+      "TeachDate\\Neo4td\\Neo4tdBundle" : ""
     }
   },
-  "target-dir" : "TeachDate/Neo4j/Neo4jBundleBundle",
+  "target-dir" : "TeachDate/Neo4td/Neo4tdBundle",
   "repositories" : [{
   }],
   "extra" : {
