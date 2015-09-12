@@ -1,0 +1,3 @@
+neo4td_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: Neo4tdBundle:Default:index }

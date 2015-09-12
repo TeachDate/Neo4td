@@ -1,0 +1,4 @@
+services:
+#    neo4td.example:
+#        class: TeachDate\Neo4td\Neo4tdBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
