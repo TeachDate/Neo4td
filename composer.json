@@ -1,0 +1,30 @@
+{
+  "name" : "TeachDate/Neo4tdbundle",
+  "description" : "A Cool Symfony Neo4j Bundle",
+  "type" : "symfony-bundle",
+  "authors" : [{
+    "name" : "sajad kioumarsi",
+    "email" : "kioumarsi@gmail.com"
+  }],
+  "keywords" : [
+    "symfony neo4j bundle"
+  ],
+  "license" : [
+    "MIT"
+  ],
+  "require" : {
+  },
+  "autoload" : {
+    "psr-0" : {
+      "TeachDate\\Neo4jBundle" : ""
+    }
+  },
+  "target-dir" : "TeachDate/Neo4j/Neo4jBundleBundle",
+  "repositories" : [{
+  }],
+  "extra" : {
+    "branch-alias" : {
+      "dev-master" : "0.1"
+    }
+  }
+}
