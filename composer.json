@@ -13,12 +13,12 @@
     "MIT"
   ],
   "require" : {
-    "php": ">=5.3.2",
+    "php": ">=5.5.0",
     "hirevoice/neo4jphp-ogm": "dev-master"
   },
   "autoload" : {
     "psr-0" : {
-      "TeachDate\\Neo4td\\Neo4tdBundle" : "",
+      "TeachDate\\Neo4td\\Neo4tdBundle" : ""
     }
   },
   "target-dir" : "TeachDate/Neo4td/Neo4tdBundle",
