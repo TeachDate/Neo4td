@@ -1,7 +1,7 @@
 <?php
 
 namespace TeachDate\Neo4td\Neo4tdBundle\DependencyInjection;
-
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -32,5 +32,14 @@ class Configuration implements ConfigurationInterface
         // more information on that topic.
 
         return $treeBuilder;
+    }
+
+    public function load(array $configs, ContainerBuilder $container)
+    {
+        $loader = new XmlFileLoader(
+            $container,
+            new FileLocator('/app/config')
+        );
+        $loader->load('config,yml.xml');
     }
 }
