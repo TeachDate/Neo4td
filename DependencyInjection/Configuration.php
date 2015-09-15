@@ -34,12 +34,4 @@ class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
-    public function load(array $configs, ContainerBuilder $container)
-    {
-        $loader = new XmlFileLoader(
-            $container,
-            new FileLocator('/app/config')
-        );
-        $loader->load('config,yml.xml');
-    }
 }
