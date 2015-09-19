@@ -5,6 +5,7 @@ use Everyman\Neo4j\Label as EveryLabel;
 use TeachDate\Neo4td\Neo4tdBundle\Neo4td;
 
 class Label extends EveryLabel{
+    protected $name;
 
     public function __construct($name=null,array $uniqueProps=null){
         $neo4td=new Neo4td();
@@ -19,5 +20,16 @@ class Label extends EveryLabel{
         if($name!==null){
             $this->name=$name;
         }
+    }
+
+    public function getName(){
+        return $this->name;
+    }
+
+    public function findOneByProperty($property,$value){
+        $query='MATCH (n:'.$this->name.'{'.$property.':'.'"'.$value.'"}) RETURN n LIMIT 1';
+        $query=new Query($this->client,$query);
+        $result= $this->client->executeCypherQuery($query);
+        return $result;
     }
 }

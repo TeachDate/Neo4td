@@ -3,10 +3,11 @@ namespace TeachDate\Neo4td\Neo4tdBundle\Entity;
 use Everyman\Neo4j\Node as EveryNode;
 use Everyman\Neo4j\Index;
 use Everyman\Neo4j\UniqueEntity;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Routing\Exception\InvalidParameterException;
 use TeachDate\Neo4td\Neo4tdBundle\Neo4td;
-class Node extends  EveryNode{
-    public function __construct(){
+class Node extends EveryNode{
+    public function __construct($index=false){
         $neo4td=new Neo4td();
         $this->setClient($neo4td->getClient());
     }
@@ -16,9 +17,14 @@ class Node extends  EveryNode{
                 throw new InvalidParameterException("Labels parameters should be instance of Label class");
             }
         }
-
-        $this->setProperties($properties);
-        $this->save();
-        $this->addLabels($labels);
+        try{
+            $this->setProperties($properties);
+            $this->save()->addLabels($labels);
+            return $this;
+        }catch (\Exception $e){
+            $this->delete();
+            return $e;
+        }
     }
+
 }

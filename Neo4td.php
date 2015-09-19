@@ -10,7 +10,7 @@ class Neo4td{
     }
     public function getClient(){
         $client=new Client();
-        $client->getTransport()->setAuth('username','password');
+        $client->getTransport()->setAuth('neo4j','ubuntu');
         return $client;
     }
 }
