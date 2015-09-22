@@ -7,9 +7,11 @@ use TeachDate\Neo4td\Neo4tdBundle\Neo4td;
 class Relation extends Relationship{
     protected $name;
     protected $label;
-    public function __construct($name,$label){
+    protected $properties;
+    public function __construct($name,$label,array $properties=null){
         $this->name=$name;
         $this->label=$label;
+        $this->properties=$properties;
     }
 
     public function getName(){
@@ -18,5 +20,9 @@ class Relation extends Relationship{
 
     public function getLabel(){
         return $this->label;
+    }
+
+    public function getProperties(){
+        return $this->properties;
     }
 }

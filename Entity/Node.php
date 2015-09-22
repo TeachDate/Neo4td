@@ -27,4 +27,15 @@ class Node extends EveryNode{
         }
     }
 
+//    public function relateTo($to,$type,$properties=null){
+//        $rel = $this->client->makeRelationship();
+//        $rel->setStartNode($this);
+//        $rel->setEndNode($to);
+//        if($properties) {
+//            $rel->setProperties($properties);
+//        }
+//        $rel->setType($type);
+//        return $rel;
+//    }
+
 }
