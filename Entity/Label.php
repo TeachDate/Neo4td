@@ -32,4 +32,18 @@ class Label extends EveryLabel{
         $result= $this->client->executeCypherQuery($query);
         return $result;
     }
+
+    public function searchAllByProperty($property,$phrase){
+        $query='MATCH (n:'.$this->name.") where n.name=~ '.*".$phrase.".*' RETURN n";
+        $query=new Query($this->client,$query);
+        $result= $this->client->executeCypherQuery($query);
+        $res=array();
+        $res['data']=null;
+        $res['count']=$result->count();
+        for($i=1;$i<=$result->count();$i++){
+             $res['data'][]=$result->current()['data']->getProperties();
+            $result->next();
+        }
+        return $res;
+    }
 }
